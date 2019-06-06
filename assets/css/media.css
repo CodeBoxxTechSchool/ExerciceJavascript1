@@ -1,0 +1,21 @@
+@media only screen and (max-width:750px ) {
+    .smallNoDisplay {
+        display: none;
+    }
+    .smallBiggerFont {
+        font-size: 150%;
+        font-style: italic;
+    }
+    .smallBiggerMargin {
+        margin-right: 50px;
+    }
+}   
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}

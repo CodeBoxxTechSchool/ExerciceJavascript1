@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Rocket Elevators - Quote</title>
+
+	<!-- mobile settings -->
+	<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+	<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+	<!-- WEB FONTS : use %7C instead of | (pipe) -->
+	<link
+		href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700"
+		rel="stylesheet" type="text/css" />
+
+	<!-- CORE CSS -->
+	<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+	<!-- THEME CSS -->
+	<link href="assets/css/essentials.css" rel="stylesheet" type="text/css" />
+	<link href="assets/css/layout.css" rel="stylesheet" type="text/css" />
+	<link href="assets/css/media.css" rel="stylesheet" type="text/css" id="color_scheme" />
+
+	<!-- PAGE LEVEL SCRIPTS -->
+	<link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
+	<link href="assets/css/color_scheme/green.css" rel="stylesheet" type="text/css" id="color_scheme" />
+</head>
+
+
+<body class="smoothscroll enable-animation">
+
+	<!-- wrapper -->
+	<div id="wrapper">
+
+		<div id="header" class="navbar-toggleable-md sticky header-md clearfix">
+
+			<!-- TOP NAV -->
+			<header id="topNav">
+				<div class="container">
+
+					<!-- Mobile Menu Button -->
+					<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+						<i class="fa fa-bars"></i>
+					</button>
+
+					<!-- Logo -->
+					<a class="logo float-left">
+						<img src="assets/images/logo_Rocket.png" alt="logo" />
+					</a>
+
+				</div>
+			</header>
+			<!-- /Top Nav -->
+
+		</div>
+	</div>
+
+
+	<!-- wrapper -->
+	<div id="wrapper">
+
+
+		<div id="header" class="navbar-toggleable-md clearfix sticky">
+
+			<!-- TOP NAV -->
+			<header id="topNav">
+				<div class="container">
+
+					<!-- Mobile Menu Button -->
+					<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+						<i class="fa fa-bars"></i>
+					</button>
+				</div>
+			</header>
+		</div>
+	</div>
+
+
+
+	<!-- PORTFOLIO -->
+	<section id="work" style="padding-top: 50px">
+		<div class="container" style="width: auto">
+
+			<div class="heading-title heading-dotted text-center">
+				<h2>Type of Project</h2>
+			</div>
+
+
+			<div class="text-center">
+				<ul class="nav nav-pills mix-filter mb-60 dany34">
+					<li id='residential' data-filter="residential" class="filter"><a href="#">Residential</a></li>
+					<li id='commercial' data-filter="commercial" class="filter"><a href="#">Commercial</a></li>
+					<li id='corporate' data-filter="corporate" class="filter"><a href="#">Corporate</a></li>
+					<li id='hybrid' data-filter="hybrid" class="filter"><a href="#">Hybrid</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="container global_">
+
+			<div class="row mix-grid">
+
+				<div class="col-md-12 col-sm-9">
+
+
+					<!-- Useful Elements -->
+					<div class="card card-default">
+						<div class="card-heading card-heading-transparent">
+							<h2 class="card-title">Your Quote</h2>
+						</div>
+
+						<div class="card-block">
+
+							<form class="validate" method="post" enctype="multipart/form-data"
+								data-success="Sent! Thank you!" data-toastr-position="top-right">
+								<fieldset>
+
+									<div class="row">
+										<div class="col-md-4 col-sm-6 mix residential">
+											<label>N. of Appartements *</label>
+											<input type="number" name="contact[first_name]" value=""
+												class="form-control required formField" id="numApp">
+										</div>
+										<div class="col-md-4 col-sm-6 mix residential commercial corporate hybrid">
+											<label>N. of Floors *</label>
+											<input type="number" name="contact[last_name]" value=""
+												class="form-control required formField" id="numFloors">
+										</div>
+										<div class="col-md-4 col-sm-6 mix residential commercial corporate hybrid">
+											<label>N. of Basements *</label>
+											<input type="number" name="contact[last_name]" value=""
+												class="form-control required formField" id="numBase">
+										</div>
+
+										<div class="col-md-4 col-sm-6 mix commercial hybrid">
+											<label>N. of Companies *</label>
+											<input type="number" name="contact[last_name]" value=""
+												class="form-control required formField" id="numComp">
+										</div>
+										<div class="col-md-4 col-sm-6 mix commercial corporate hybrid  ">
+											<label>N. of Parking Spots *</label>
+											<input type="number" name="contact[last_name]" value=""
+												class="form-control required formField" id="numPark">
+										</div>
+										<div class="col-md-4 col-sm-6 mix commercial  ">
+											<label>N. of Elevator Shaft *</label>
+											<input type="number" name="contact[last_name]" value=""
+												class="form-control required formField" id="numElev">
+										</div>
+										<div class="col-md-4 col-sm-6 mix corporate  ">
+											<label>N. of Corporations *</label>
+											<input type="number" name="contact[last_name]" value=""
+												class="form-control required formField" id="numCorpo">
+										</div>
+										<div class="col-md-4 col-sm-6 mix corporate hybrid  ">
+											<label>Max Occ. per Floor *</label>
+											<input type="number" name="contact[last_name]" value=""
+												class="form-control required formField" id="maxOcc">
+										</div>
+										<div class="col-md-4 col-sm-6 mix hybrid">
+											<!-- select2 -->
+
+
+
+											<label>Business Hours *</label>
+											<div class="fancy-form fancy-form-select ">
+												<select class="form-control select2 formField">
+													<option value="">--- Select ---</option>
+													<option value="1">1 hour</option>
+													<option value="2">2 hours</option>
+													<option value="3">3 hours</option>
+													<option value="4">4 hours</option>
+													<option value="5">5 hours</option>
+													<option value="6">6 hours</option>
+													<option value="7">7 hours</option>
+													<option value="8">8 hours</option>
+													<option value="9">9 hours</option>
+													<option value="10">10 hours</option>
+													<option value="11">11 hours</option>
+													<option value="12">12 hours</option>
+													<option value="13">13 hours</option>
+													<option value="14">14 hours</option>
+													<option value="15">15 hours</option>
+													<option value="16">16 hours</option>
+													<option value="17">17 hours</option>
+													<option value="18">18 hours</option>
+													<option value="19">19 hours</option>
+													<option value="20">20 hours</option>
+													<option value="21">21 hours</option>
+													<option value="22">22 hours</option>
+													<option value="23">23 hours</option>
+													<option value="24">24 hours</option>
+												</select>
+
+												<i class="fancy-arrow-"></i>
+											</div>
+
+
+										</div>
+
+										<div class="col-md-12 col-sm-12 mix residential commercial corporate hybrid ">
+											<label>Required Elevators</label>
+											<input type="text" name="contact[last_name]" value=""
+												class="form-control required formField" id="numElev_3">
+										</div>
+
+										<div class="col-md-12 col-sm-12 mix residential commercial corporate hybrid">
+											<!-- checkbox -->
+											<div class="card-heading card-heading-transparent" style="padding-left:0"
+												style="padding-top:20px">
+												<h2 class="card-title">Select a range</h2>
+											</div>
+
+											<!-- radio -->
+											<label class="radio">
+												<input type="radio" name="radio-btn" value="1" id="standard" class="productRangeBtn">
+												<i></i> Standard
+											</label>
+
+											<label class="radio">
+												<input type="radio" name="radio-btn" value="1" id="premium" class="productRangeBtn">
+												<i></i> Premium
+											</label>
+
+											<label class="radio">
+												<input type="radio" name="radio-btn" value="1" id="excelium" class="productRangeBtn">
+												<i></i> Excelium
+											</label>
+
+										</div>
+
+										<div class="col-md-12 col-sm-12 mix residential commercial corporate hybrid">
+											<!-- checkbox -->
+											<div class="card-heading card-heading-transparent" style="padding-left:0"
+												style="padding-top:20px">
+												<h2 class="card-title">Your Estimation</h2>
+											</div>
+										</div>
+
+										<div class="col-md-3 col-sm-12 mix residential commercial corporate hybrid">
+											<label>N. of Elevator</label>
+											<input type="text" name="contact[last_name]" value=""
+												class="form-control required formField" id="numElev_2">
+										</div>
+
+										<div class="col-md-3 col-sm-12 mix residential commercial corporate hybrid">
+											<label>Unit Price ($)</label>
+											<input type="text" name="contact[last_name]" value=""
+												class="form-control required formField" id="elevPriceUnit">
+										</div>
+
+										<div class="col-md-3 col-sm-12 mix residential commercial corporate hybrid">
+											<label>Elevators Total ($)</label>
+											<input type="text" name="contact[last_name]" value=""
+												class="form-control required formField priceField" id="elevTotal">
+										</div>
+
+										<div class="col-md-3 col-sm-12 mix residential commercial corporate hybrid">
+											<label>Installation ($)</label>
+											<input type="text" name="contact[last_name]" value=""
+												class="form-control required formField priceField" id="installationFee">
+										</div>
+
+										<div class="col-md-3 col-sm-12 mix residential commercial corporate hybrid">
+											<label>Total ($)</label>
+											<input type="text" name="contact[last_name]" value=""
+												class="form-control required formField priceField" id="total_">
+										</div>
+
+									</div>
+
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- / -->
+
+
+	<!-- SCROLL TO TOP -->
+	<a href="#" id="toTop"></a>
+
+
+	<!-- PRELOADER -->
+	<div id="preloader">
+		<div class="inner">
+			<span class="loader"></span>
+		</div>
+	</div><!-- /PRELOADER -->
+
+
+	<!-- JAVASCRIPT FILES -->
+	<script>var plugin_path = 'assets/plugins/';</script>
+	<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
+
+	<script src="assets/js/scripts.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/quote.js"></script>
+
+
+	<!-- STYLESWITCHER - REMOVE -->
+	<script async src="demo_files/styleswitcher/styleswitcher.js"></script>
+
+
+</body>
+
+</html>
