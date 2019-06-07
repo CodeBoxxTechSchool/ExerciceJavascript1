@@ -21,7 +21,7 @@ Comme plusieurs employés travailleront à corriger ces problèmes, on vous dema
 
 7- Le calcul Corporate affiche des "NaN"
 
-8- Le calcul Hybride ne fonctionne pas du tout
+8- Le calcul Hybrid ne fonctionne pas du tout
 
 9- Un calcul avec l'option Premium donne un prix erroné
 
