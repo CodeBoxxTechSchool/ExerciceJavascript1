@@ -5,6 +5,8 @@ programmeur avant vous y a laissé beaucoup de problème. Vous avez donc un bon 
 
 Comme plusieurs employés travailleront à corriger ces problèmes, on vous demande de faire les modifications sur votre propre branche plutôt que sur le master.
 
+##### À noter que seulement le fichier JS doit être corrigé, le fichier HTML n'a pas besoin de modification.
+
 #### Voici la liste des choses à corriger:
 
 1- Le champ "Unit Price" affiche seulement le prix de la gamme Standard
