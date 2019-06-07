@@ -11,21 +11,21 @@ Comme plusieurs employés travailleront à corriger ces problèmes, on vous dema
 
 2- Le champ "N. of Elevator" ne s'efface pas lorsqu'un champ mandatoire est effacé
 
-3- Cliquer sur le bouton Standard ne semble pas refaire un nouveau calcul
+3- On peut entrer un nombre négatif dans le champ "N. of Floors"
 
-4- On peut entrer un nombre négatif dans le champ "N. of Floors"
+4- Le calcul Résidential affiche des "NaN"
 
-5- Le calcul Résidential affiche des "NaN"
+5- Le calcul Commercial devrait se déclancher dès que le champ "N. of Elevator Shaft" est rempli
 
-6- Le calcul Commercial devrait se déclancher dès que le champ "N. of Elevator Shaft" est rempli
+6- Le calcul Commercial affiche des "NaN"
 
-7- Le calcul Commercial affiche des "NaN"
+7- Le calcul Corporate affiche des "NaN"
 
-8- Le calcul Corporate affiche des "NaN"
+8- Le calcul Hybride ne fonctionne pas du tout
 
-9- Le calcul Hybride ne fonctionne pas du tout
+9- Un calcul avec l'option Premium donne un prix erroné
 
-10- Un calcul avec l'option Premium donne un prix erroné
+10- Cliquer sur le bouton Standard ne semble pas refaire un nouveau calcul
 
-Une fois cet exercice complété, vous pouvez continuer avec l'exercice Git #3, qui vous permettra de faire valider vos modifications.
+##### Une fois cet exercice complété, vous pouvez continuer avec l'exercice Git #3, qui vous permettra de faire valider vos modifications.
 
