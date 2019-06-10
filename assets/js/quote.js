@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $("#numElev_2, #numElev_3, #elevPriceUnit, #elevTotal, #installationFee, #total_").attr('readonly', true);
 
-    var numApp, numFloors, numBase, numTower, numElev, maxOcc, totalMaxOcc, numAverElev, finNumElev, totalNumFloors;
+    var numApp, numFloors, numBase, maxOcc;
     var prodRange = {
         type: null,
         price: null,
