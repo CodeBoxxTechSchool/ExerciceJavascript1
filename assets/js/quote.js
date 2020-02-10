@@ -193,7 +193,6 @@ $(document).ready(function () {
                 if (prodRange.type != null) {
                     setPricesResults(body.subTotal, body.installationFee, body.grandTotal);
                 }
-                console.log(JSON.stringify(body));
             }
         });
     }
