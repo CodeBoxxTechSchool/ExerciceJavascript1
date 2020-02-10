@@ -23,7 +23,7 @@ $(document).ready(function () {
         doCalc();
     });
     $('#excelium').on('click', function () {
-        document.getElementById('elevPriceUnit').value = (15000).toFixed(2) + " $";
+        document.getElementById('elevPriceUnit').value = (15400).toFixed(2) + " $";
         doCalc();
     });
 
@@ -76,7 +76,7 @@ $(document).ready(function () {
 
         } else if ($('#excelium').is(':checked')) {
             prodRange.type = "excelium";
-            prodRange.price = parseFloat(15000);
+            prodRange.price = parseFloat(15400);
             prodRange.installationFeePercentage = 0.16;
             return prodRange;
         } else {
