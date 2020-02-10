@@ -11,9 +11,8 @@ $(document).ready(function () {
     $('.formField').on('keyup', function () {
         doCalc();
     });
-
-
-    $('#standart, #premium, #excelium').on('click', function () {
+    //10- Clicking on the Standard button does not seem to redo a new calculation --> "t" instead of "d"
+    $('#standard, #premium, #excelium').on('click', function (){
         document.getElementById('elevPriceUnit').value = (7565).toFixed(2) + " $";
         doCalc();
     });
@@ -57,13 +56,15 @@ $(document).ready(function () {
 
         } else if ($('#premium').is(':checked')) {
             prodRange.type = "premium";
-            prodRange.price = parseFloat(123456);
+            prodRange.price = parseFloat(12345); //9- A calculation with the Premium option gives an incorrect price --> it was an extra "6" in the end of the line
+            document.getElementById('elevPriceUnit').value = (12345).toFixed(2) + " $"; //1- The "Unit Price" field displays only the price of the Standard range
             prodRange.installationFeePercentage = 0.13;
             return prodRange;
 
         } else if ($('#excelium').is(':checked')) {
             prodRange.type = "excelium";
             prodRange.price = parseFloat(15400);
+            document.getElementById('elevPriceUnit').value = (15400).toFixed(2) + " $"; //1- The "Unit Price" field displays only the price of the Standard range
             prodRange.installationFeePercentage = 0.16;
             return prodRange;
         } else {
@@ -75,6 +76,7 @@ $(document).ready(function () {
     };
 
     function GetInfos() {
+        getInfoNumApp(); //4- The Residential calculation displays "NaN" --> add getInfoNumApp();
         getInfoNumFloors();
         getInfoNumBase();
         getInfoNumElev();
@@ -93,6 +95,7 @@ $(document).ready(function () {
     };
 
     function emptyElevatorsNumberAndPricesFields() {
+        $('#numElev_2').val('');  //3- The "N. of Elevator" field is not deleted when a mandatory field is deleted
         $('#numElev_3').val('');
         $('.priceField').val('');
     };
@@ -104,7 +107,8 @@ $(document).ready(function () {
             numberBase: numBase,
             maximumOcc: maxOcc,
             productRange: prodRange,
-            projectType: projectType
+            projectType: projectType,
+            numberElev: numElev,
         }
     };
 
@@ -113,6 +117,14 @@ $(document).ready(function () {
 
             alert("Please enter a positive number!");
             $('#numApp').val('');
+            return true
+
+        } 
+        //3- You can enter a negative number in the "N. of Floors" field --> add this lines with numFloors
+        else if ($('#numFloors').val() < 0) {
+
+            alert("Please enter a positive number!");
+            $('#numFloors').val('');
             return true
 
         } else if ($('#numBase').val() < 0) {
@@ -172,7 +184,7 @@ $(document).ready(function () {
             success: function (data) {
                 setRequiredElevatorsResult(data.finalNumElev);
                 if (prodRange.type != null) {
-                    setPricesResults(data.finalNumElev, data.subTotal, data.installationFee, data.grandTotal);
+                    setPricesResults(data.subTotal, data.installationFee, data.grandTotal);
                 }
             }
         });
@@ -181,10 +193,12 @@ $(document).ready(function () {
     function doCalc() {
         if ($('#residential').hasClass('active') && !negativeValues() && $('#numApp').val() && $('#numFloors').val()) {
             apiCall('residential')
-        } else if ($('#commercial').hasClass('active') && !negativeValues() && $('#numElev').val()  && $('#numPark').val()) {
+        } else if ($('#commercial').hasClass('active') && !negativeValues() && $('#numElev').val()) {
             apiCall('commercial')
         } else if ($('#corporate').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {
-            apiCall('commercial')
+            apiCall('corporate') //7- The Corporate calculation displays "NaN"
+        } else if ($('#hybrid').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#maxOcc').val()) {
+            apiCall('hybrid') //8- Hybrid calculation does not work at all ---> add this line with the right condition
         } else {
             emptyElevatorsNumberAndPricesFields();
         };
