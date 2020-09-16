@@ -30,6 +30,7 @@ Comme plusieurs employés travailleront à corriger ces problèmes, on vous dema
 10- Cliquer sur le bouton Standard ne semble pas refaire un nouveau calcul
 
 ##### Une fois cet exercice complété, vous pouvez continuer avec l'exercice Git #3, qui vous permettra de faire valider vos modifications.
+https://github.com/MathieuHoude/ExerciceGit3
 
 ------------------------------------------------------------------------------------------------------------------
 
@@ -62,4 +63,5 @@ Here is the list of things to fix:
 10- Clicking on the Standard button does not seem to redo a new calculation
 
 ##### Once this exercise is completed, you can continue with exercise Git # 3, which will allow you to validate your modifications.
+https://github.com/MathieuHoude/ExerciceGit3
 
