@@ -212,6 +212,5 @@ $(document).ready(function () {
         } else {
             emptyElevatorsNumberAndPricesFields();
         };
-        
     };
 });
