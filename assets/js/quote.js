@@ -113,6 +113,7 @@ $(document).ready(function () {
             numberApp: numApp,
             numberFloors: numFloors,
             numberBase: numBase,
+            numberElev: numElev,
             maximumOcc: maxOcc,
             productRange: prodRange,
             projectType: projectType
@@ -161,8 +162,11 @@ $(document).ready(function () {
             alert("Please enter a positive number!");
             $('#maxOcc').val('');
             return true
-        } else {
-            return false
+            
+        } else if ($('#numFloors').val() < 0){
+            alert("Please enter a positive number!");
+            $('#numFloors').val('');
+            return true;
         }
     };
 
