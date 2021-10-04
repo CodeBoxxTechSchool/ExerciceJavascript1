@@ -43,7 +43,7 @@ Here is the list of things to fix:
 
 2- The "N. of Elevator" field is not deleted when a mandatory field is emptied
 
-3- You can enter a negative number in the "N. of Floors" field 
+3- You can enter a negative number in the "N. of Floors" field => fixed
 
 4- The Residential calculation displays "NaN" => fixed
 
@@ -51,9 +51,9 @@ Here is the list of things to fix:
 
 6- Commercial calculation displays "NaN" => fixed
 
-7- The Corporate calculation displays "NaN"
+7- The Corporate calculation displays "NaN" => fixed
 
-8- Hybrid calculation does not work at all
+8- Hybrid calculation does not work at all => fixed
 
 9- A calculation with the Premium option gives an incorrect price
 
