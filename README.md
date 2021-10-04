@@ -41,7 +41,7 @@ Note that only the "quote.js" file needs to be corrected. The HTML file needs no
 Here is the list of things to fix:
 1- The "Unit Price" field displays only the price of the Standard range => fixed
 
-2- The "N. of Elevator" field is not deleted when a mandatory field is emptied
+2- The "N. of Elevator" field is not deleted when a mandatory field is emptied => fixed
 
 3- You can enter a negative number in the "N. of Floors" field => fixed
 
@@ -55,6 +55,6 @@ Here is the list of things to fix:
 
 8- Hybrid calculation does not work at all => fixed
 
-9- A calculation with the Premium option gives an incorrect price
+9- A calculation with the Premium option gives an incorrect price => fixed
 
-10- Clicking on the Standard button does not seem to redo a new calculation
+10- Clicking on the Standard button does not seem to redo a new calculation => fixed
