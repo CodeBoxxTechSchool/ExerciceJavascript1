@@ -64,7 +64,7 @@ $(document).ready(function () {
 
         } else if ($('#premium').is(':checked')) {
             prodRange.type = "premium";
-            prodRange.price = parseFloat(123456);
+            prodRange.price = parseFloat(12345);
             prodRange.installationFeePercentage = 0.13;
             return prodRange;
 
@@ -91,13 +91,15 @@ $(document).ready(function () {
     };
 
     function setRequiredElevatorsResult(finNumElev) {
-        $("#numElev_2, #numElev_3").val(parseFloat(finNumElev));
+        $("#numElev_2, #numElev_3").val(parseInt(finNumElev));
     };
 
-    function setPricesResults(finNumElev, roughTotal, installFee, total) {
-        $("#elevTotal").val(parseFloat(roughTotal).toFixed(2) + " $");
+    function setPricesResults(finalNumElev, roughTotal, installFee, total) {
+        $("#elevTotal").val(parseInt(roughTotal).toFixed(2) + " $");
         $("#installationFee").val(parseFloat(installFee).toFixed(2) + " $");
         $("#total_").val(parseFloat(total).toFixed(2) + " $");
+        // $("#numElev_2, #numElev_3").val(parseFloat(finalNumElev).toFixed(2) + " $");
+
     };
 
     function emptyElevatorsNumberAndPricesFields() {
