@@ -33,7 +33,7 @@ Comme plusieurs employés travailleront à corriger ces problèmes, on vous dema
 
 # JS Exercice #1
 
-This is the first quote request form that was made for Rocket Elevators, but unfortunately the lastprogrammer has left you with a lot of trouble. So you have a good debugging job to do!
+This is the first quote request form that was made for Rocket Elevators, but unfortunately the previous programmer has left you with a lot of trouble. So you have a good debugging job to do!
 
 As several employees will work to correct these problems, you are asked to make the changes on your own branch rather than on the master.
 
