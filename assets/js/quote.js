@@ -13,8 +13,17 @@ $(document).ready(function () {
     });
 
 
-    $('#standart, #premium, #excelium').on('click', function () {
-        document.getElementById('elevPriceUnit').value = (7565).toFixed(2) + " $";
+    $('input[name=radio-btn]').on('click', function () {
+        switch(this.id){
+            case 'standard':
+                document.getElementById('elevPriceUnit').value = (7565).toFixed(2) + " $";
+                break;
+            case 'premium':
+                document.getElementById('elevPriceUnit').value = (12345).toFixed(2) + " $";
+                break;
+            case 'excelium':
+                document.getElementById('elevPriceUnit').value = (15400).toFixed(2) + " $";
+        }
         doCalc();
     });
 
