@@ -13,9 +13,16 @@ $(document).ready(function () {
     });
 
 
-    $('#standart, #premium, #excelium').on('click', function () {
-        document.getElementById('elevPriceUnit').value = (7565).toFixed(2) + " $";
+    $('#standard, #premium, #excelium').on('click', function () {
+       if ($('#standard').is(':checked')) { document.getElementById('elevPriceUnit').value = (7565).toFixed(2) + " $";
         doCalc();
+    } else if ($('#premium').is(':checked')) {
+        document.getElementById('elevPriceUnit').value = (12345).toFixed(2) + " $";
+        doCalc();
+    } else if ($('#excelium').is(':checked')) { 
+        document.getElementById('elevPriceUnit').value = (15400).toFixed(2) + " $";
+        doCalc();
+    }
     });
 
     $('#residential, #commercial, #corporate, #hybrid').on('click', function () {
@@ -113,6 +120,12 @@ $(document).ready(function () {
 
             alert("Please enter a positive number!");
             $('#numApp').val('');
+            return true
+
+        } else if ($('#numFloors').val() < 0) {
+
+            alert("Please enter a positive number!");
+            $('#numFloors').val('');
             return true
 
         } else if ($('#numBase').val() < 0) {
