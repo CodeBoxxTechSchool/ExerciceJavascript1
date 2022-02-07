@@ -49,6 +49,7 @@ $(document).ready(function () {
 
     function getInfoNumElev() {
         numElev = $('#numElev').val();
+        console.log(numElev)
     };
 
     function getInfoMaxOcc() {
@@ -92,13 +93,16 @@ $(document).ready(function () {
 
     function setRequiredElevatorsResult(finNumElev) {
         $("#numElev_2, #numElev_3").val(parseInt(finNumElev));
+        
+        console.log(numElev)
     };
 
-    function setPricesResults(finalNumElev, roughTotal, installFee, total) {
+    function setPricesResults(numElev, roughTotal, installFee, total) {
         $("#elevTotal").val(parseInt(roughTotal).toFixed(2) + " $");
         $("#installationFee").val(parseFloat(installFee).toFixed(2) + " $");
         $("#total_").val(parseFloat(total).toFixed(2) + " $");
-        // $("#numElev_2, #numElev_3").val(parseFloat(finalNumElev).toFixed(2) + " $");
+        // $("#numElev").val(parseInt(numElev)
+        console.log(numElev)
 
     };
 
@@ -116,6 +120,7 @@ $(document).ready(function () {
             maximumOcc: maxOcc,
             productRange: prodRange,
             projectType: projectType
+            // finNumElev: numElev
         }
     };
 
@@ -178,6 +183,7 @@ $(document).ready(function () {
 
         //Preparing data for Api call
         formData = createFormData(projectType)
+        console.log(formData)
 
         $.ajax({
             type: "POST",
@@ -187,9 +193,11 @@ $(document).ready(function () {
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (data) {
-                setRequiredElevatorsResult(data.finalNumElev);
+                setRequiredElevatorsResult(data.fiddnalNumElev);
+                console.log(numElev)
                 if (prodRange.type != null) {
                     setPricesResults(data.finalNumElev, data.subTotal, data.installationFee, data.grandTotal);
+                    console.log(finalNumElev)
                 }
             }
         });
@@ -198,8 +206,10 @@ $(document).ready(function () {
     function doCalc() {
         if ($('#residential').hasClass('active') && !negativeValues() && $('#numApp').val() && $('#numFloors').val()) {
             apiCall('residential')
+            console.log(numElev, "je suis un nombre")
         } else if ($('#commercial').hasClass('active') && !negativeValues() && $('#numElev').val()) {
             apiCall('commercial')
+            console.log(numElev, "je suis un nombre")
         } else if ($('#corporate').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {
             apiCall('corporate')
         } else if ($('#hybrid').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {
