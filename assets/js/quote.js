@@ -91,18 +91,18 @@ $(document).ready(function () {
         getProdRange();
     };
 
-    function setRequiredElevatorsResult(finNumElev) {
-        $("#numElev_2, #numElev_3").val(parseInt(finNumElev));
+    function setRequiredElevatorsResult(finalNumElev) {
+        $("#numElev_2, #numElev_3").val(parseInt(finalNumElev));
         
-        console.log(numElev)
+        console.log(finNumElev)
     };
 
-    function setPricesResults(numElev, roughTotal, installFee, total) {
+    function setPricesResults(finNumElev, roughTotal, installFee, total) {
         $("#elevTotal").val(parseInt(roughTotal).toFixed(2) + " $");
         $("#installationFee").val(parseFloat(installFee).toFixed(2) + " $");
         $("#total_").val(parseFloat(total).toFixed(2) + " $");
-        // $("#numElev").val(parseInt(numElev)
-        console.log(numElev)
+        // $("#numElev_2, #numElev_3").val(parseInt(finalNumElev));
+        console.log(finumElev)
 
     };
 
@@ -119,8 +119,8 @@ $(document).ready(function () {
             numberBase: numBase,
             maximumOcc: maxOcc,
             productRange: prodRange,
-            projectType: projectType
-            // finNumElev: numElev
+            projectType: projectType,
+            finalNumElev: numElev
         }
     };
 
@@ -183,7 +183,7 @@ $(document).ready(function () {
 
         //Preparing data for Api call
         formData = createFormData(projectType)
-        console.log(formData)
+        console.log("my form data is : ", formData)
 
         $.ajax({
             type: "POST",
@@ -193,11 +193,11 @@ $(document).ready(function () {
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (data) {
-                setRequiredElevatorsResult(data.fiddnalNumElev);
-                console.log(numElev)
+                console.log("my data is :", data)
+                setRequiredElevatorsResult(data.FFfinalNumElev);
                 if (prodRange.type != null) {
                     setPricesResults(data.finalNumElev, data.subTotal, data.installationFee, data.grandTotal);
-                    console.log(finalNumElev)
+                    console.log("inside of if prodRange". data)
                 }
             }
         });
@@ -206,10 +206,10 @@ $(document).ready(function () {
     function doCalc() {
         if ($('#residential').hasClass('active') && !negativeValues() && $('#numApp').val() && $('#numFloors').val()) {
             apiCall('residential')
-            console.log(numElev, "je suis un nombre")
+           
         } else if ($('#commercial').hasClass('active') && !negativeValues() && $('#numElev').val()) {
             apiCall('commercial')
-            console.log(numElev, "je suis un nombre")
+            
         } else if ($('#corporate').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {
             apiCall('corporate')
         } else if ($('#hybrid').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {
