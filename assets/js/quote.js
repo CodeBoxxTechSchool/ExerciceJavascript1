@@ -49,6 +49,7 @@ $(document).ready(function () {
 
     function getInfoNumElev() {
         numElev = $('#numElev').val();
+        console.log(numElev)
     };
 
     function getInfoMaxOcc() {
@@ -90,15 +91,26 @@ $(document).ready(function () {
         getProdRange();
     };
 
-    function setRequiredElevatorsResult(finNumElev) {
-        $("#numElev_2, #numElev_3").val(parseInt(finNumElev));
+    function setRequiredElevatorsResult(finalNumElev) {
+        $("#numElev_2, #numElev_3").val(parseInt(finalNumElev));
+        
+        console.log(finNumElev)
     };
 
+<<<<<<< HEAD
     function setPricesResults(roughTotal, installFee, total) {
         $("#elevTotal").val(parseInt(roughTotal).toFixed(2) + " $");
         $("#installationFee").val(parseFloat(installFee).toFixed(2) + " $");
         $("#total_").val(parseFloat(total).toFixed(2) + " $");
         // $("#numElev_2, #numElev_3").val(parseFloat(numElev).toFixed(2) + " $");
+=======
+    function setPricesResults(finNumElev, roughTotal, installFee, total) {
+        $("#elevTotal").val(parseInt(roughTotal).toFixed(2) + " $");
+        $("#installationFee").val(parseFloat(installFee).toFixed(2) + " $");
+        $("#total_").val(parseFloat(total).toFixed(2) + " $");
+        // $("#numElev_2, #numElev_3").val(parseInt(finalNumElev));
+        console.log(finumElev)
+>>>>>>> 101e6637441d6bbcef84dc3b95b9269ca3229176
 
     };
 
@@ -116,7 +128,11 @@ $(document).ready(function () {
             maximumOcc: maxOcc,
             productRange: prodRange,
             projectType: projectType,
+<<<<<<< HEAD
             numberElev: numElev
+=======
+            finalNumElev: numElev
+>>>>>>> 101e6637441d6bbcef84dc3b95b9269ca3229176
         }
     };
 
@@ -179,6 +195,7 @@ $(document).ready(function () {
 
         //Preparing data for Api call
         formData = createFormData(projectType)
+        console.log("my form data is : ", formData)
 
         $.ajax({
             type: "POST",
@@ -188,9 +205,15 @@ $(document).ready(function () {
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (data) {
-                setRequiredElevatorsResult(data.finalNumElev);
+                console.log("my data is :", data)
+                setRequiredElevatorsResult(data.FFfinalNumElev);
                 if (prodRange.type != null) {
+<<<<<<< HEAD
                     setPricesResults(data.subTotal, data.installationFee, data.grandTotal);
+=======
+                    setPricesResults(data.finalNumElev, data.subTotal, data.installationFee, data.grandTotal);
+                    console.log("inside of if prodRange". data)
+>>>>>>> 101e6637441d6bbcef84dc3b95b9269ca3229176
                 }
             }
         });
@@ -199,8 +222,10 @@ $(document).ready(function () {
     function doCalc() {
         if ($('#residential').hasClass('active') && !negativeValues() && $('#numApp').val() && $('#numFloors').val()) {
             apiCall('residential')
+           
         } else if ($('#commercial').hasClass('active') && !negativeValues() && $('#numElev').val()) {
             apiCall('commercial')
+            
         } else if ($('#corporate').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {
             apiCall('corporate')
         } else if ($('#hybrid').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {
