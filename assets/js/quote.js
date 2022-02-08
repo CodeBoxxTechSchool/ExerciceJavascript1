@@ -191,7 +191,6 @@ $(document).ready(function () {
                 setRequiredElevatorsResult(data.finalNumElev);
                 if (prodRange.type != null) {
                     setPricesResults(data.subTotal, data.installationFee, data.grandTotal);
-                    console.log(data)
                 }
             }
         });
