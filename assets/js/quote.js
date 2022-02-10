@@ -83,13 +83,14 @@ $(document).ready(function () {
     };
 
     function setRequiredElevatorsResult(finNumElev) {
-        $("#numElev_2, #numElev_3").val(parseFloat(finNumElev));
+        $("#numElev_2, #numElev_3, numElev").val(parseFloat(finNumElev));
     };
 
     function setPricesResults(finNumElev, roughTotal, installFee, total) {
         $("#elevTotal").val(parseFloat(roughTotal).toFixed(2) + " $");
         $("#installationFee").val(parseFloat(installFee).toFixed(2) + " $");
-        $("#total_").val(parseFloat(total).toFixed(2) + " $");
+        $("#total_").val(parseFloat(total).toFixed(2).toLocaleString("en-US") + " $");
+        $("#elevPriceUnit").val((parseFloat(total / finNumElev).toFixed(2)).toLocaleString("en-US") + " $");
     };
 
     function emptyElevatorsNumberAndPricesFields() {
@@ -104,7 +105,8 @@ $(document).ready(function () {
             numberBase: numBase,
             maximumOcc: maxOcc,
             productRange: prodRange,
-            projectType: projectType
+            projectType: projectType,
+            numberElev: numElev
         }
     };
 
