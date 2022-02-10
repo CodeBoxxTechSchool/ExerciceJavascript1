@@ -8,8 +8,9 @@ $(document).ready(function () {
         installationFeePercentage: null
     };
 
-    $('.formField').on('keyup', function () {
+    $('.formField').on('click', function () {
         doCalc();
+        console.log('x') 
     });
 
 
@@ -24,7 +25,7 @@ $(document).ready(function () {
 
 
     function initialize() {
-        $('.formField').val('');
+        $('.formField').val('0');
         $('.productRangeBtn').prop('checked', false);
     };
 
@@ -57,7 +58,7 @@ $(document).ready(function () {
 
         } else if ($('#premium').is(':checked')) {
             prodRange.type = "premium";
-            prodRange.price = parseFloat(123456);
+            prodRange.price = parseFloat(12345);
             prodRange.installationFeePercentage = 0.13;
             return prodRange;
 
@@ -150,6 +151,11 @@ $(document).ready(function () {
             alert("Please enter a positive number!");
             $('#maxOcc').val('');
             return true
+        }  else if ($('#numFloors').val() < 0) {
+
+            alert("Please enter a positive number!");
+            $('#numFloors').val('');
+            return true
         } else {
             return false
         }
@@ -164,7 +170,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            // url: 'http://localhost:3000/api/quoteCalculation/', //for local testing
+            // url: 'http://localhost:5500/api/quoteCalculation/', //for local testing
             url: 'https://rocketelevators-quote.herokuapp.com/api/quoteCalculation/',
             data: JSON.stringify(formData),
             contentType: "application/json; charset=utf-8",
@@ -184,8 +190,10 @@ $(document).ready(function () {
         } else if ($('#commercial').hasClass('active') && !negativeValues() && $('#numElev').val()  && $('#numPark').val()) {
             apiCall('commercial')
         } else if ($('#corporate').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {
-            apiCall('commercial')
-        } else {
+            apiCall('corporate')
+        } else if ($('#hybrid').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {
+            apiCall('hybrid')
+        } else{
             emptyElevatorsNumberAndPricesFields();
         };
     };
