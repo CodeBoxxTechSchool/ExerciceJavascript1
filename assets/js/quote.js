@@ -10,12 +10,10 @@ $(document).ready(function () {
 
     $('.formField').on('click', function () {
         doCalc();
-        console.log('x') 
     });
 
 
-    $('#standart, #premium, #excelium').on('click', function () {
-        document.getElementById('elevPriceUnit').value = (7565).toFixed(2) + " $";
+    $('#standard, #premium, #excelium').on('click', function () {
         doCalc();
     });
 
@@ -25,7 +23,7 @@ $(document).ready(function () {
 
 
     function initialize() {
-        $('.formField').val('0');
+        $('.formField').val('');
         $('.productRangeBtn').prop('checked', false);
     };
 
@@ -76,6 +74,7 @@ $(document).ready(function () {
     };
 
     function GetInfos() {
+        getInfoNumApp();
         getInfoNumFloors();
         getInfoNumBase();
         getInfoNumElev();
@@ -187,7 +186,7 @@ $(document).ready(function () {
     function doCalc() {
         if ($('#residential').hasClass('active') && !negativeValues() && $('#numApp').val() && $('#numFloors').val()) {
             apiCall('residential')
-        } else if ($('#commercial').hasClass('active') && !negativeValues() && $('#numElev').val()  && $('#numPark').val()) {
+        } else if ($('#commercial').hasClass('active') && !negativeValues() && $('#numElev').val()) {
             apiCall('commercial')
         } else if ($('#corporate').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {
             apiCall('corporate')
