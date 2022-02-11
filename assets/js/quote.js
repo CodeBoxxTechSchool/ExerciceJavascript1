@@ -83,7 +83,7 @@ $(document).ready(function () {
     };
 
     function setRequiredElevatorsResult(finNumElev) {
-        $("#numElev_2, #numElev_3, numElev").val(parseFloat(finNumElev));
+        $("#numElev_2, #numElev_3").val(parseFloat(finNumElev));
     };
 
     function setPricesResults(finNumElev, roughTotal, installFee, total) {
