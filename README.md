@@ -55,6 +55,6 @@ Here is the list of things to fix:
 
 8- // fixxed Hybrid calculation does not work at all// fixed
 
-9- A calculation with the Premium option gives an incorrect price
+9- //fixxed A calculation with the Premium option gives an incorrect price //fixxed
 
-10- Clicking on the Standard button does not seem to redo a new calculation
+10-//fixxed  Clicking on the Standard button does not seem to redo a new calculation //fixxed
