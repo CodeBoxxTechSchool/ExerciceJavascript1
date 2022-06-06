@@ -115,6 +115,12 @@ $(document).ready(function () {
             $('#numApp').val('');
             return true
 
+        } else if ($('#numFloors').val() < 0) {             // pour corriger l'entrée du chiffre négatif - OK
+
+            alert("Please enter a positive number!");
+            $('#numFloors').val('');
+            return true
+
         } else if ($('#numBase').val() < 0) {
 
             alert("Please enter a positive number!");
