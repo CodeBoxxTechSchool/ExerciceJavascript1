@@ -22,7 +22,7 @@ $(document).ready(function () {
 
     $('#premium').on('click', function () {
 
-        $('#elevPriceUnit').val((7565).toFixed(2) + " $")
+        $('#elevPriceUnit').val((12345).toFixed(2) + " $")
         doCalc();
 
     });
