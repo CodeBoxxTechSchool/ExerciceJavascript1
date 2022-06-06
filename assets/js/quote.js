@@ -13,18 +13,33 @@ $(document).ready(function () {
     });
 
 
-    $('#standart, #premium, #excelium').on('click', function () {
+    $('#standard, #premium, #excelium').on('click', function () {
+
+        if( $('#standard').prop('checked') == true ){
         document.getElementById('elevPriceUnit').value = (7565).toFixed(2) + " $";
         doCalc();
+        console.log(createFormData());
+        
+        
+
+        }else if($('#premium').prop('checked') == true) {
+        document.getElementById('elevPriceUnit').value = (12345).toFixed(2) + " $";
+        doCalc();
+
+        }else if($('#excelium').prop('checked') == true) {
+        document.getElementById('elevPriceUnit').value = (15400).toFixed(2) + " $";
+        doCalc();
+        }
+
     });
 
     $('#residential, #commercial, #corporate, #hybrid').on('click', function () {
         initialize();
     });
 
-
+    // sets evreything to 0
     function initialize() {
-        $('.formField').val('');
+        $('.formField').val('0');
         $('.productRangeBtn').prop('checked', false);
     };
 
@@ -75,6 +90,7 @@ $(document).ready(function () {
     };
 
     function GetInfos() {
+        getInfoNumApp();
         getInfoNumFloors();
         getInfoNumBase();
         getInfoNumElev();
@@ -86,7 +102,7 @@ $(document).ready(function () {
         $("#numElev_2, #numElev_3").val(parseFloat(finNumElev));
     };
 
-    function setPricesResults(finNumElev, roughTotal, installFee, total) {
+    function setPricesResults(finalNumElev, roughTotal, installFee, total) {
         $("#elevTotal").val(parseFloat(roughTotal).toFixed(2) + " $");
         $("#installationFee").val(parseFloat(installFee).toFixed(2) + " $");
         $("#total_").val(parseFloat(total).toFixed(2) + " $");
@@ -95,6 +111,8 @@ $(document).ready(function () {
     function emptyElevatorsNumberAndPricesFields() {
         $('#numElev_3').val('');
         $('.priceField').val('');
+        $('#numElev_2').val('');
+        
     };
 
     function createFormData(projectType) {
@@ -115,6 +133,12 @@ $(document).ready(function () {
             $('#numApp').val('');
             return true
 
+        } else if ($('#numFloors').val() < 0) {
+
+            alert("Please enter a positive number!");
+            $('#numFloors').val('');
+            return true
+        
         } else if ($('#numBase').val() < 0) {
 
             alert("Please enter a positive number!");
@@ -189,4 +213,6 @@ $(document).ready(function () {
             emptyElevatorsNumberAndPricesFields();
         };
     };
+    
+   
 });
