@@ -18,7 +18,7 @@ $(document).ready(function () {
         if( $('#standard').prop('checked') == true ){
         document.getElementById('elevPriceUnit').value = (7565).toFixed(2) + " $";
         doCalc();
-        console.log(createFormData());
+        console.log(data);
         
         
 
@@ -72,7 +72,7 @@ $(document).ready(function () {
 
         } else if ($('#premium').is(':checked')) {
             prodRange.type = "premium";
-            prodRange.price = parseFloat(123456);
+            prodRange.price = parseFloat(12345);
             prodRange.installationFeePercentage = 0.13;
             return prodRange;
 
@@ -120,6 +120,7 @@ $(document).ready(function () {
             numberApp: numApp,
             numberFloors: numFloors,
             numberBase: numBase,
+            numberElev: numElev,
             maximumOcc: maxOcc,
             productRange: prodRange,
             projectType: projectType
@@ -197,8 +198,9 @@ $(document).ready(function () {
                 setRequiredElevatorsResult(data.finalNumElev);
                 if (prodRange.type != null) {
                     setPricesResults(data.finalNumElev, data.subTotal, data.installationFee, data.grandTotal);
+                    console.log(data.subTotal);
                 }
-            }
+            }   
         });
     }
     
@@ -208,11 +210,12 @@ $(document).ready(function () {
         } else if ($('#commercial').hasClass('active') && !negativeValues() && $('#numElev').val()  && $('#numPark').val()) {
             apiCall('commercial')
         } else if ($('#corporate').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {
-            apiCall('commercial')
+            apiCall('corporate')
+        } else if ($('#hybrid').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {
+            apiCall('hybrid')
         } else {
             emptyElevatorsNumberAndPricesFields();
         };
     };
-    
    
 });
