@@ -121,7 +121,11 @@ $(document).ready(function () {
     if ($("#numApp").val() < 0) {
       alert("Please enter a positive number!");
       $("#numApp").val("");
-      return true;
+        return true;
+    } else if ($("#numFloors").val() < 0) {
+        alert("Please enter a positive number!");
+        $("#numBase").val("");
+        return true;
     } else if ($("#numBase").val() < 0) {
       alert("Please enter a positive number!");
       $("#numBase").val("");
