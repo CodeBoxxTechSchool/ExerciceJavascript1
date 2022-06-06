@@ -13,7 +13,7 @@ $(document).ready(function () {
     });
 
 
-    $('#standart, #premium, #excelium').on('click', function () {
+    $('#standard, #premium, #excelium').on('click', function () {                       // pour corriger standart
         document.getElementById('elevPriceUnit').value = (7565).toFixed(2) + " $";
         doCalc();
     });
