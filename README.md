@@ -49,11 +49,11 @@ Here is the list of things to fix:
 
 5- // fixxed The Commercial calculation should be triggered as soon as the "N. of Elevator Shaft" field is filled // fixed
 
-6- Commercial calculation displays "NaN"
+6- //fixxed Commercial calculation displays "NaN"// fixxed
 
-7- The Corporate calculation displays "NaN"
+7- // fixxed The Corporate calculation displays "NaN" //fixxed
 
-8- Hybrid calculation does not work at all
+8- // fixxed Hybrid calculation does not work at all// fixed
 
 9- A calculation with the Premium option gives an incorrect price
 
