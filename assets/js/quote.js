@@ -87,7 +87,7 @@ $(document).ready(function () {
         $("#numElev_2, #numElev_3").val(parseFloat(finNumElev));   
     };
 
-    function setPricesResults(finNumElev, roughTotal, installFee, total) {
+    function setPricesResults(finNumElev, roughTotal, installFee, total) {     //il manque kekchose pour finNumElev
         $("#elevTotal").val(parseFloat(roughTotal).toFixed(2) + " $");
         $("#installationFee").val(parseFloat(installFee).toFixed(2) + " $");
         $("#total_").val(parseFloat(total).toFixed(2) + " $");
@@ -104,6 +104,7 @@ $(document).ready(function () {
             numberApp: numApp,
             numberFloors: numFloors,
             numberBase: numBase,
+            numberElev: numElev,            // j'ai ajouté le numElev qui n'était pas là
             maximumOcc: maxOcc,
             productRange: prodRange,
             projectType: projectType
