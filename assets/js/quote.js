@@ -195,8 +195,7 @@ $(document).ready(function () {
     } else if (
       $("#commercial").hasClass("active") &&
       !negativeValues() &&
-      $("#numElev").val() &&
-      $("#numPark").val()
+      $("#numElev").val()
     ) {
       apiCall("commercial");
     } else if (
