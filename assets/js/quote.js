@@ -190,12 +190,15 @@ $(document).ready(function () {
       $("#residential").hasClass("active") &&
       !negativeValues() &&
       $("#numApp").val() &&
-      $("#numFloors").val()
+      $("#numFloors").val() &&
+      $("#numBase").val()
     ) {
       apiCall("residential");
     } else if (
       $("#commercial").hasClass("active") &&
       !negativeValues() &&
+      $("#numFloors").val() &&
+      $("#numBase").val() &&
       $("#numElev").val()
     ) {
       apiCall("commercial");
