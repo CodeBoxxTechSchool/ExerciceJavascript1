@@ -14,8 +14,13 @@ $(document).ready(function () {
 
 
     $('#standard, #premium, #excelium').on('click', function () {                       // pour corriger standart
-        document.getElementById('elevPriceUnit').value = (12345).toFixed(2) + " $";
+        document.getElementById("elevPriceUnit").value = (7565).toFixed(2) + " $";  //ajouter .price après la value - OK quoi mettre avant le to.Fixed ?
+        
+        
+        
+        
         doCalc();
+        
     });
 
     $('#residential, #commercial, #corporate, #hybrid').on('click', function () {
@@ -68,7 +73,7 @@ $(document).ready(function () {
             return prodRange;
         } else {
             prodRange.type = null,
-            prodRange.price = null,                       //à enlever ?
+            prodRange.price = null,                       
             prodRange.installationFeePercentage = null
             return prodRange;
         }
@@ -87,7 +92,7 @@ $(document).ready(function () {
         $("#numElev_2, #numElev_3").val(parseFloat(finNumElev));   
     };
 
-    function setPricesResults(finNumElev, roughTotal, installFee, total) {     //il manque kekchose pour finNumElev
+    function setPricesResults(finNumElev, roughTotal, installFee, total) {     
         $("#elevTotal").val(parseFloat(roughTotal).toFixed(2) + " $");
         $("#installationFee").val(parseFloat(installFee).toFixed(2) + " $");
         $("#total_").val(parseFloat(total).toFixed(2) + " $");
