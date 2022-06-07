@@ -40,7 +40,9 @@
 	window.width 	= jQuery(window).width();
 	window.height 	= jQuery(window).height();
 
+	
 
+	
 	/* Init */
 	jQuery(window).ready(function () {
 
@@ -54,7 +56,7 @@
 
 		// Popper user by Bootstrap
 		_loadPopperBS4();
-
+		
 		// Load Bootstrap JS
 		loadScript(plugin_path + 'bootstrap/js/bootstrap.min.js', function() {
 
@@ -80,7 +82,7 @@
 		/* --- */
 	});
 
-
+	
 /** Init
 	Ajax Reinit:		Init(true);
  **************************************************************** **/
