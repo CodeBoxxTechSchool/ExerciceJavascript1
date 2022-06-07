@@ -12,9 +12,9 @@ $(document).ready(function () {
         doCalc();
     });
 
-
-    $('#standart, #premium, #excelium').on('click', function () {
-        document.getElementById('elevPriceUnit').value = (7565).toFixed(2) + " $";
+   
+    $('#standard, #premium, #excelium').on('click', function () {
+        document.getElementById('elevPriceUnit').value = (prodRange.price).toFixed(2) + " $";;
         doCalc();
     });
 
@@ -48,6 +48,10 @@ $(document).ready(function () {
         maxOcc = $('#maxOcc').val();
     };
 
+    function getInfoNumPark() {
+        numPark = $('#numPark').val();
+    };
+
     function getProdRange() {
         if ($('#standard').is(':checked')) {
             prodRange.type = "standard";
@@ -57,7 +61,7 @@ $(document).ready(function () {
 
         } else if ($('#premium').is(':checked')) {
             prodRange.type = "premium";
-            prodRange.price = parseFloat(123456);
+            prodRange.price = parseFloat(12345);
             prodRange.installationFeePercentage = 0.13;
             return prodRange;
 
@@ -66,6 +70,7 @@ $(document).ready(function () {
             prodRange.price = parseFloat(15400);
             prodRange.installationFeePercentage = 0.16;
             return prodRange;
+
         } else {
             prodRange.type = null,
             prodRange.price = null,
@@ -75,10 +80,12 @@ $(document).ready(function () {
     };
 
     function GetInfos() {
+        getInfoNumApp();
         getInfoNumFloors();
         getInfoNumBase();
         getInfoNumElev();
         getInfoMaxOcc();
+        getInfoNumPark();
         getProdRange();
     };
 
@@ -93,6 +100,7 @@ $(document).ready(function () {
     };
 
     function emptyElevatorsNumberAndPricesFields() {
+        $('#numElev_2').val('')
         $('#numElev_3').val('');
         $('.priceField').val('');
     };
@@ -115,6 +123,12 @@ $(document).ready(function () {
             $('#numApp').val('');
             return true
 
+        } else if ($('#numFloors').val() < 0) {
+
+            alert("Please enter a positive number!");
+            $('#numFloors').val('');
+            return true 
+        
         } else if ($('#numBase').val() < 0) {
 
             alert("Please enter a positive number!");
@@ -150,7 +164,9 @@ $(document).ready(function () {
             alert("Please enter a positive number!");
             $('#maxOcc').val('');
             return true
+
         } else {
+
             return false
         }
     };
@@ -184,7 +200,9 @@ $(document).ready(function () {
         } else if ($('#commercial').hasClass('active') && !negativeValues() && $('#numElev').val()  && $('#numPark').val()) {
             apiCall('commercial')
         } else if ($('#corporate').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {
-            apiCall('commercial')
+            apiCall('corporate')
+        } else if ($('#hybrid').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {
+            apiCall('hybrid')
         } else {
             emptyElevatorsNumberAndPricesFields();
         };
