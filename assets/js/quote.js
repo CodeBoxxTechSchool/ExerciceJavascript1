@@ -3,7 +3,7 @@ $(document).ready(function () {
     "#numElev_2, #numElev_3, #elevPriceUnit, #elevTotal, #installationFee, #total_"
   ).attr("readonly", true);
 
-  var numApp, numFloors, numBase, maxOcc;
+  var numApp, numFloors, numBase, maxOcc, numElev;
   var prodRange = {
     type: null,
     price: null,
@@ -113,6 +113,7 @@ $(document).ready(function () {
       numberFloors: numFloors,
       numberBase: numBase,
       maximumOcc: maxOcc,
+      numberElev: numElev,
       productRange: prodRange,
       projectType: projectType,
     };
