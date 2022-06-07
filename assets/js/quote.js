@@ -206,7 +206,7 @@ $(document).ready(function () {
       $("#numBase").val() &&
       $("#maxOcc").val()
     ) {
-      apiCall("commercial");
+      apiCall("corporate");
     } else {
       emptyElevatorsNumberAndPricesFields();
     }
