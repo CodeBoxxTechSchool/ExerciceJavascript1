@@ -207,6 +207,14 @@ $(document).ready(function () {
       $("#maxOcc").val()
     ) {
       apiCall("corporate");
+    } else if (
+      $("#hybrid").hasClass("active") &&
+      !negativeValues() &&
+      $("#numFloors").val() &&
+      $("#numBase").val() &&
+      $("#maxOcc").val()
+    ) {
+      apiCall("corporate");
     } else {
       emptyElevatorsNumberAndPricesFields();
     }
