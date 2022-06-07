@@ -49,9 +49,10 @@ $(document).ready(function () {
     };
 
     function getInfoNumElev() {
+        console.log('numElev working')
         numElev = $('#numElev').val();
     };
-
+    
     function getInfoMaxOcc() {
         maxOcc = $('#maxOcc').val();
     };
@@ -65,7 +66,7 @@ $(document).ready(function () {
 
         } else if ($('#premium').is(':checked')) {
             prodRange.type = "premium";
-            prodRange.price = parseFloat(123456);
+            prodRange.price = parseFloat(12345);
             prodRange.installationFeePercentage = 0.13;
             return prodRange;
 
@@ -89,6 +90,8 @@ $(document).ready(function () {
         getInfoMaxOcc();
         getProdRange();
         getInfoNumApp();
+        
+        
     };
 
     function setRequiredElevatorsResult(finNumElev) {
@@ -110,11 +113,12 @@ $(document).ready(function () {
     function createFormData(projectType) {
         return {
             numberApp: numApp,
+            numberElev: numElev,
             numberFloors: numFloors,
             numberBase: numBase,
             maximumOcc: maxOcc,
             productRange: prodRange,
-            projectType: projectType
+            projectType: projectType,
         }
     };
 
@@ -172,6 +176,7 @@ $(document).ready(function () {
     function apiCall(projectType) {
         //Getting numbers from quote
         GetInfos();
+        
 
         //Preparing data for Api call
         formData = createFormData(projectType)
@@ -190,13 +195,26 @@ $(document).ready(function () {
                 }
             }
         });
+    };
+
+    
+
+
+    
+
+    function getInfoCom() {
+        console.log("calcul commercial working")
+
+        var numberElev = document.getElementById('numElev').value;
+        document.getElementById('numElev_2').value = numberElev ;
+        document.getElementById('numElev_3').value = numberElev ;
     }
     
     function doCalc() {
         if ($('#residential').hasClass('active') && !negativeValues() && $('#numApp').val() && $('#numFloors').val()) {
             apiCall('#residential')
         } else if ($('#commercial').hasClass('active') && !negativeValues() && $('#numElev').val() ) {
-            apiCall('#commercial')
+            getInfoCom('#commercial')
         } else if ($('#corporate').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {
             apiCall('#corporate')
         } else if ($('#hybrid').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {
