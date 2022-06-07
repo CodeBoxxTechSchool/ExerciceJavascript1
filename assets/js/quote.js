@@ -197,8 +197,6 @@ $(document).ready(function () {
     } else if (
       $("#commercial").hasClass("active") &&
       !negativeValues() &&
-      $("#numFloors").val() &&
-      $("#numBase").val() &&
       $("#numElev").val()
     ) {
       apiCall("commercial");
