@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $("#numElev_2, #numElev_3, #elevPriceUnit, #elevTotal, #installationFee, #total_").attr('readonly', true);
 
-    var numApp, numFloors, numBase, numElev, maxOcc;   //j'ai ajouté numElev qui manquait
+    var numApp, numFloors, numBase, numElev, maxOcc;                                        //adding numElev
     var prodRange = {
         type: null,
         price: null,
@@ -13,15 +13,20 @@ $(document).ready(function () {
     });
 
 
-    $('#standard, #premium, #excelium').on('click', function () {                       // pour corriger standart
-        document.getElementById("elevPriceUnit").value = (7565).toFixed(2) + " $";  //ajouter .price après la value - OK quoi mettre avant le to.Fixed ?
-        
-        
-        
-        
+    $('#standard').on('click', function () {                                                // Standard
+        document.getElementById('elevPriceUnit').value = (7565).toFixed(2) + " $";  
         doCalc();
-        
     });
+    $('#premium').on('click', function () {
+        document.getElementById('elevPriceUnit').value = (12345).toFixed(2) + " $";         // defining my 3 IDs
+        doCalc();
+    });
+    $('#excelium').on('click', function () {
+        document.getElementById('elevPriceUnit').value = (15400).toFixed(2) + " $";
+        doCalc();
+    });
+
+
 
     $('#residential, #commercial, #corporate, #hybrid').on('click', function () {
         initialize();
@@ -62,7 +67,7 @@ $(document).ready(function () {
 
         } else if ($('#premium').is(':checked')) {
             prodRange.type = "premium";
-            prodRange.price = parseFloat(12345);            //pour corriger le 123456 entré ici
+            prodRange.price = parseFloat(12345);                                            // to correct the amount
             prodRange.installationFeePercentage = 0.13;
             return prodRange;
 
@@ -80,7 +85,7 @@ $(document).ready(function () {
     };
 
     function GetInfos() {
-        getInfoNumApp();                                // ajouter le getInfoNumApp manquant
+        getInfoNumApp();                                                                    // to get the missing getInfoNumApp
         getInfoNumFloors();
         getInfoNumBase();
         getInfoNumElev();
@@ -101,7 +106,7 @@ $(document).ready(function () {
     function emptyElevatorsNumberAndPricesFields() {
         $('#numElev_3').val('');
         $('.priceField').val('');
-        $('#numElev_2').val('');            // pour vider le change n. of elevator j'ai ajouté cette ligne
+        $('#numElev_2').val('');                                                            // to be able to clear n. of elevator
     };
 
     function createFormData(projectType) {
@@ -109,7 +114,7 @@ $(document).ready(function () {
             numberApp: numApp,
             numberFloors: numFloors,
             numberBase: numBase,
-            numberElev: numElev,            // j'ai ajouté le numElev qui n'était pas là
+            numberElev: numElev,                                                            // Adding the missing numElev
             maximumOcc: maxOcc,
             productRange: prodRange,
             projectType: projectType
@@ -123,7 +128,7 @@ $(document).ready(function () {
             $('#numApp').val('');
             return true
 
-        } else if ($('#numFloors').val() < 0) {             // pour corriger l'entrée du chiffre négatif - OK
+        } else if ($('#numFloors').val() < 0) {                                             // to correct the negative number that was allowed
 
             alert("Please enter a positive number!");
             $('#numFloors').val('');
@@ -195,11 +200,11 @@ $(document).ready(function () {
     function doCalc() {
         if ($('#residential').hasClass('active') && !negativeValues() && $('#numApp').val() && $('#numFloors').val()) {
             apiCall('residential')
-        } else if ($('#commercial').hasClass('active') && !negativeValues() && $('#numElev').val()) {   //enlever && $('#numPark').val() car commercial n'en a pas besoin
+        } else if ($('#commercial').hasClass('active') && !negativeValues() && $('#numElev').val()) {   //getting rid of && $('#numPark').val() commercial doesn't need that
             apiCall('commercial')
         } else if ($('#corporate').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {
             apiCall('corporate')
-        } else if ($('#hybrid').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {    //j'ai ajouté la section hybrid
+        } else if ($('#hybrid').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {    //hybrid section added
             apiCall('hybrid')
         } else {
             emptyElevatorsNumberAndPricesFields();
