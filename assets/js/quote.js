@@ -10,12 +10,16 @@ $(document).ready(function () {
 
     $('.formField').on('keyup', function () {
         doCalc();
+        
     });
 
 
     $('#standard').on('click', function () {
         document.getElementById('elevPriceUnit').value = (7565).toFixed(2) + " $";
         doCalc();
+        
+        
+
     });
     $('#premium').on('click', function () {
         document.getElementById('elevPriceUnit').value = (12345).toFixed(2) + " $";
@@ -49,7 +53,7 @@ $(document).ready(function () {
     };
 
     function getInfoNumElev() {
-        console.log('numElev working')
+        
         numElev = $('#numElev').val();
     };
     
@@ -203,7 +207,7 @@ $(document).ready(function () {
     
 
     function getInfoCom() {
-        console.log("calcul commercial working")
+        
 
         var numberElev = document.getElementById('numElev').value;
         document.getElementById('numElev_2').value = numberElev ;
